@@ -12,6 +12,41 @@ snippet beginend "$1.begin(), $1.end() (beginend)"
 ${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
 endsnippet
 
+snippet NubiPlugin "CLASS_BASE CLAS_TYPE..."
+#define CLASS_BASE Nubi::${1:Base}
+#define CLASS_TYPE Nubi::${2:Type}
+#define KEY_NAME "${2}Plugin"
+#include "PluginRegistration.h"
+endsnippet
+
+snippet NubiInterface "CLASS_BASE CLAS_TYPE..."
+#define CLASS_BASE Nubi::${1:Base}
+#define CLASS_TYPE Nubi::$1
+#define KEY_NAME "interface$1"
+#include "PluginRegistration.h"
+endsnippet
+
+
+snippet GPL3OWN "GPl (gpl)"
+/**
+* This file is part of ${1:Program}.
+* Copyright (C) ${2:Author}, `!v strftime("%Y")`
+*
+* $1 is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* $1 is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with $1.  If not, see <http://www.gnu.org/licenses/>.
+**/
+endsnippet
+
 snippet cl "class .. (class)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
@@ -53,5 +88,15 @@ endsnippet
 snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
+
+snippet incboostlog "include log trivial"
+#define BOOST_LOG_DYN_LINK
+#include <boost/log/trivial.hpp>
+endsnippet
+
+snippet log "BOOST_LOG_TRIVIAL ..."
+BOOST_LOG_TRIVIAL(${1:trace}) << "${2}" ;
+endsnippet
+
 
 # vim:ft=snippets:
