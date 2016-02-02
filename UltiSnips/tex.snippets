@@ -2,6 +2,46 @@ priority -50
 
 extends texmath
 
+######## TikZ ###########
+
+
+snippet tikz_mindmap "Bubble style mindmap"
+
+\begin{tikzpicture}[]
+ \path[
+ 	mindmap,
+ 	concept color=black!40,
+	text=white,
+    every node/.style= {concept,circular drop shadow},
+    root/.style= {concept color=black!40, font=\large\bfseries,text width=10em},
+    level 1 concept/.append style={font=\Large\bfseries, sibling angle=50,text width=7.7em, level distance=15em,inner sep=0pt},
+    level 2 concept/.append style={font=\bfseries,level distance=9em}]
+  		node[root] {${1:node text}} [clockwise from=0]
+			$2
+\end{tikzpicture}
+
+endsnippet
+
+snippet tikz_child "Mindmap child"
+child[concept color=${1:blue}] {
+	node[concept] {${2:node text}}[clockwise from=${3:30}]
+		$4
+}
+endsnippet
+
+
+
+snippet basic_doc "Basic assigment document"
+\documentclass[paper=a4, fontsize=11pt, utf8]{scrartcl} % A4 paper and 11pt font size
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage{url}
+\author{${1:Author}}
+\title{${0:title}}
+\begin{document}
+
+\end{document}
+endsnippet
+
 snippet "b(egin)?" "begin{} / end{}" br
 \begin{${1:something}}
 	${0:${VISUAL}}
