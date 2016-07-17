@@ -2,6 +2,42 @@ priority -50
 
 extends texmath
 
+
+######## Small Snippets for thesis ########
+
+snippet neo4j "neo4j glossary" 
+\gls{glos:neo4j}
+endsnippet
+
+snippet gls "Glossary"
+\gls{glos:${1:name}}
+endsnippet
+
+snippet acr "Acronym"
+\gls{${1:name}}
+endsnippet
+
+######## Glossary #######
+
+snippet newglos "add new Glossary Entry"
+\newglossaryentry{glos:${1:glos-name}}{
+    name={$1}, 
+    description={${2:glos-description}}}
+endsnippet
+
+snippet newacr "add new acronym"
+\newacronym{${1:ACR}}{$1}{${2:Long Form}}
+endsnippet
+
+######## Thesis #########
+
+snippet goal "Goal mdframed environment"
+
+\begin{goal}[${1:goal name}]{goal:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+${0}
+\end{goal}
+endsnippet
+
 ######## TikZ ###########
 
 

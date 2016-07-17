@@ -1,4 +1,9 @@
 #PREAMBLE
+#name placeholder for thesis
+snippet dob "Domain Object" b
+	\dobject{${1}} ${0}
+snippet n "\name" b
+	\name{${1}} ${0}
 #newcommand
 snippet nc \newcommand
 	\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
@@ -181,6 +186,16 @@ snippet listing reference to a listing
 	${1:Listing}~\ref{${2:list}}
 snippet section reference to a section
 	${1:Section}~\ref{sec:${2}} ${0}
+snippet Abbildung reference to a figure
+	${1:Abbildung}~\ref{${2:fig:}}
+snippet Tabelle reference to a table
+	${1:Tabelle}~\ref{${2:tab:}}
+snippet Listing reference to a listing
+	${1:Listing}~\ref{${2:list}}
+snippet Abschnitt reference to a section
+	${1:Abschnitt}~\ref{sec:${2}} ${0}
+snippet Kapitel reference to a section
+	${1:Kapitel}~\ref{cha:${2}} ${0}
 snippet page reference to a page
 	${1:page}~\pageref{${2}} ${0}
 snippet index \index
